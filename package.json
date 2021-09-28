@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js || ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "heroku-postbuild": "ng build --prod"
+  },
+  "engines": {
+    "node": "14.17.3",
+    "npm": "7.19.1"
   },
   "private": true,
   "dependencies": {
@@ -19,6 +24,8 @@
     "@angular/router": "~12.1.2",
     "@tensorflow/tfjs": "^3.9.0",
     "bootstrap": "^5.1.1",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
     "rxjs": "~6.6.0",
     "save": "^2.4.0",
     "tslib": "^2.2.0",

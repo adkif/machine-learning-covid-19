@@ -1,0 +1,21 @@
+<div>
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
+  
+      <div *ngFor="let question of questions" class="form-row mb-1">
+        <app-dynamic-form-question [question]="question" [form]="form"></app-dynamic-form-question>
+      </div>
+  
+      <div class="form-row">
+        <button class="button" class="btn btn-primary" type="submit" [disabled]="!form.valid">Prediction</button>
+      </div>
+    </form>
+  
+    <div *ngIf="payLoad" class="form-row">
+      <strong>Prediction values</strong>
+      <br>severityMild: {{payLoad.severityMild}}
+      <br>severityModerate: {{payLoad.severityModerate}}
+      <br>severityNone: {{payLoad.severityNone}}
+      <br>severitySevere: {{payLoad.severitySevere}}
+      <br><span class="xl" style="color: green;">Votre état covid est {{severity}}</span>
+    </div>
+  </div>
